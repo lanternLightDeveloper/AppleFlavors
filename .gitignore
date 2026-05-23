@@ -1,0 +1,36 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+/dist
+/Extra
+/scripts
+/logSys
+compose.yaml
+package-lock.json
+.next
+.DS_Store
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*
+.env.local*
+!.env.example
+!.env.local.example
+!.env.local.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+ 
