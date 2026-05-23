@@ -1,24 +1,28 @@
-# ---------- Builder ----------
-FROM node:22-alpine AS builder
+# Build stage
+FROM node:20-alpine AS builder
+
 WORKDIR /app
 
-# Install deps (including drizzle-kit)
 COPY package*.json ./
 RUN npm install
 
-# Copy source
 COPY . .
 
-# Build SvelteKit
 RUN npm run build
 
-# ---------- Runtime ----------
-FROM node:22-alpine
+# Production stage
+FROM node:20-alpine
+
 WORKDIR /app
 
-COPY --from=builder /app/build ./build
-COPY package*.json ./
+ENV NODE_ENV=production
+
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package*.json ./
+
 RUN npm install --omit=dev
 
 EXPOSE 3000
-CMD ["node", "build/index.js"]
+
+CMD ["npm", "start"]
