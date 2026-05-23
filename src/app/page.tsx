@@ -154,7 +154,7 @@ export default function Home() {
 
           <tfoot>
             <tr>
-              <td colSpan="3">
+              <td >
                 Updated weekly
               </td>
             </tr>
@@ -349,7 +349,7 @@ export default function Home() {
 
             <textarea
               id="message"
-              rows="5"
+              rows={5}
               placeholder="Tell us about your project...">
             </textarea>
 
