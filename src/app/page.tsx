@@ -7,7 +7,7 @@ export default function Home() {
       {/* HEADER */}
 
       <header>
-        <h1>Lantern Light Development</h1>
+        <h1>Your Favorite Site</h1>
 
         <p>
           Crafting thoughtful web experiences with modern frontend tools,
